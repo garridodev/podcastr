@@ -4,7 +4,7 @@
   height: 100vh;
 
   background: var(--purple-500);
-  color: var(--white-500);
+  color: var(--white);
 
   display: flex;
   flex-direction: column;
@@ -28,6 +28,28 @@
     &.empty {
       opacity: 0.5;
     }
+  }
+}
+
+.currentEpisode {
+  text-align: center;
+
+  img {
+    border-radius: 1.5rem;
+  }
+
+  strong {
+    display: block;
+    margin-top: 2rem;
+    font: 600 1.25rem Lexend, sans-serif;
+    line-height: 1.75rem;
+  }
+
+  span {
+    display: block;
+    margin-top: 1rem;
+    opacity: 0.6;
+    line-height: 1.5rem;
   }
 }
 
@@ -86,11 +108,25 @@
     border: 0;
     font-size: 0; //se o botão só tiver uma imagem dentro, essa configuração deixar a imagem centralizada
 
+    transition: filter 0.2s;
+
+    &:disabled {
+      cursor: default;
+    }
+
+    &:hover:not(:disabled) {
+      filter: brightness(0.7);
+    }
+
     &.playButton {
       width: 4rem;
       height: 4rem;
       border-radius: 1rem;
-      bacground: var(--purple-400);
+      background: var(--purple-400);
+
+      &:hover:not(:disabled) {
+        filter: brightness(0.95);
+      }
     }
   }
 }
